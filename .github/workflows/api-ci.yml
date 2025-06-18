@@ -36,6 +36,10 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
+      - name: Instalar Jest compatible con Node 16
+        if: startsWith(matrix.node, '16')
+        run: npm install jest@27 --save-dev
+
       - name: Ejecutar pruebas con Jest
         run: npm test
 
